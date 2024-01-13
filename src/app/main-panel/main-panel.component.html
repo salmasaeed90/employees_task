@@ -1,0 +1,51 @@
+
+<section class=" py-3 my-2">
+    <div class="container bg-light">
+        <div class=" p-3">
+            <button type="button" class="btn text-primary border border-primary border-1 me-2">Save</button>
+            <button type="button" class="btn bg-danger text-white">Cancel</button>
+        </div>
+        <div>
+            <h2 class="bg-primary text-white d-inline-block px-3 m-3">Employee Registration / HR File</h2>
+        </div>
+        <div class="bg-white border border-1 rounded p-2 mb-5">
+            <mat-accordion >
+                <div class="mb-2 panel">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                GENELAL INFORMATION
+                            </mat-panel-title>
+                            
+                        </mat-expansion-panel-header> 
+                        <app-general-info></app-general-info>
+                    </mat-expansion-panel>
+                </div>
+                <div class="mb-2 panel">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                ADDRESS AND CONTACT INFORMATION
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <app-address-contact-info></app-address-contact-info>
+                    </mat-expansion-panel>
+                </div>
+                <div class="mb-2 panel">
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                EMPLOYMENT DATA & HR FILE DOCUMENTS
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <app-data-and-file-doc></app-data-and-file-doc>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+            
+        </div>
+        
+    </div>
+    
+    
+</section>
