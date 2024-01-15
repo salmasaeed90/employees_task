@@ -1,5 +1,5 @@
 <section class="pt-3">
-    <div class="container">
+    <div class="">
         <form>
             <div class="row mb-3 ">
                 <div class="col-md-4">
@@ -153,50 +153,58 @@
                 <h1>HR File</h1>
             </div>
 
-            <table class=" table table-striped border table-bordered ">
-                <thead class="">
-                  <tr class="">
-                    <th scope="col">Hiring Document</th>
-                    <th scope="col">Mandatory</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Hiring Document File</th>
-                    <th scope="col">View</th>
-                    <th scope="col">Expiry Date</th>
-                    <th scope="col">Recieve Date</th>
-                    <th scope="col">Confirm</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>certificates</td>
-                    <td><button class="btn rounded-bill bg-success text-white p-0">Yes</button></td>
-                    <td>Pending</td>
-                    <td>
-                        <input type="file" class="w-100">
-                        <button class="btn  bg-info text-white px-2">Upload File</button>
-                    </td>
-                    <td></td>
-                    <td><input type="date" class="w-100"></td>
-                    <td><input type="text" class="w-75"></td>
-                    <td><button class="btn rounded-1 bg-primary text-white">Confirm</button></td>
-                  </tr>
-                  <tr>
-                    <td>certificates</td>
-                    <td><button class="btn rounded-bill bg-success text-white p-0">Yes</button></td>
-                    <td>Pending</td>
-                    <td>
-                        <input type="file" class="w-100">
-                        <button class="btn  bg-info text-white px-2">Upload File</button>
-                    </td>
-                    <td></td>
-                    <td><input type="date" class="w-100"></td>
-                    <td><input type="text" class="w-75"></td>
-                    <td><button class="btn rounded-1 bg-primary text-white">Confirm</button></td>
-                  </tr> 
-                </tbody>
-            </table>
+            <div class="">
+                <div class="col-md-12 mt-3">
+                    <table class="border border-1  ">
+                        <thead class="">
+                          <tr class="">
+                            <th scope="col">Hiring Document</th>
+                            <th scope="col">Mandatory</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Hiring Document File</th>
+                            <th scope="col">View</th>
+                            <th scope="col">Expiry Date</th>
+                            <th scope="col">Recieve Date</th>
+                            <th scope="col">Confirm</th>
+                          </tr>
+                        </thead>
+                        <tbody class="border border-1">
+                          <tr>
+                            <td>certificates</td>
+                            <td><button class="btn rounded-bill bg-success text-white p-0">Yes</button></td>
+                            <td>Pending</td>
+                            <td class="d-flex align-items-center justify-content-evenly">
+                                <button class="btn  bg-primary text-white px-2">Chose File</button>
+                                <button class="btn  bg-info rounded-0 px-3 px-0 text-white px-2">Upload File</button>
+                            </td>
+                            <td></td>
+                            <td><input type="date" class="w-100"></td>
+                            <td><input type="text" class="w-75"></td>
+                            <td><button class="btn rounded-1 bg-primary text-white">Confirm</button></td>
+                          </tr>
+                          <tr>
+                            <td>certificates</td>
+                            <td><button class="btn rounded-bill bg-success text-white p-0">Yes</button></td>
+                            <td>Pending</td>
+                            <td class="d-flex align-items-center justify-content-evenly">
+                                <button class="btn  bg-primary text-white px-2">Chose File</button>
+                                <button class="btn  bg-info rounded-0 px-3 px-0 text-white px-2">Upload File</button>
+                            </td>
+                            <td></td>
+                            <td><input type="date" class="w-100"></td>
+                            <td><input type="text" class="w-75"></td>
+                            <td><button class="btn rounded-1 bg-primary text-white">Confirm</button></td>
+                          </tr> 
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            
+
+
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-12 mt-3">
                     <label class="d-block">Remarks</label>
                     <input type="text" class="p-2 w-100">
                 </div>

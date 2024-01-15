@@ -1,7 +1,12 @@
 table{
+    width: 100%;
     thead{
         background-color: #003cb3 !important;
         color: #fff !important;
+        padding: 10px !important;
+    }
+    td,tr,th,thead,tbody{
+        border: 1px solid #999;
     }
     button{
         font-size: 12px;

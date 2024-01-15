@@ -18,5 +18,17 @@ import { GeneralInfoComponent } from '../general-info/general-info.component';
   styleUrls: ['./main-panel.component.scss']
 })
 export class MainPanelComponent {
+ 
+  panelOpenState!:boolean;
+  panelOpenState2!:boolean;
+  panelOpenState3!:boolean;
+  constructor(){}
+
+  ngOnInit(){
+   
+    
+  }
+
+ 
 
 }
