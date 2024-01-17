@@ -39,11 +39,22 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 ///////////////////////////////////////////////////////////////////
-label,select{
-  font-size: 12px;
+label{
+  font-size: 14px !important;
 }
-input, select{
+select,option{
+  font-size: 12px !important;
+}
+.form-select{
+  padding: 3px;
+}
+
+.form-control{
+  
+  padding: 0;
   &:focus{
-      background-color: #ececf9 ;
+      background-color: #fff9f9 !important;
+      outline:none !important ;
+      
   }
 }
