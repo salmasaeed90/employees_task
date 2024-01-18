@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { AlldataService } from './alldata.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,10 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MainPanelComponent
+    MainPanelComponent,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AlldataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,14 +1,22 @@
 <section class="pt-3">
     <div class="container">
-        <form>
+        <form [formGroup]="generalForm">
             <div class="row mb-4">
                 <div class="col-md-3">
-                    <label for=""   > Staff No</label>
-                    <input type="text" class="form-control" required>
+                    <label for="staff-no"> Staff No</label>
+                    <input 
+                    type="number" 
+                    formControlName="staffNo"
+                    class="form-control" 
+                    id="staff-no">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Type</label>
-                    <select class="p-1 form-select" aria-label="Default select example">
+                    <label for="type"> Type</label>
+                    <select 
+                    id="type"
+                    formControlName="type"
+                    class="p-1 form-select" 
+                    aria-label="Default select example">
                         <option selected>Please Chose Item</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -16,12 +24,20 @@
                     </select>
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Access Card Number</label>
-                    <input type="text" class="form-control">
+                    <label for="card-num"> Access Card Number</label>
+                    <input 
+                    type="text" 
+                    formControlName="cardNum"
+                    id="card-num" 
+                    class="form-control">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Branch</label>
-                    <select class="p-1 form-select" aria-label="Default select example">
+                    <label for="branch"> Branch</label>
+                    <select 
+                    id="branch"
+                    formControlName="branch"
+                    class="p-1 form-select" 
+                    aria-label="Default select example">
                         <option selected>Chose Item</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -32,39 +48,71 @@
             </div>
             <div class="row mb-4">
                 <div class="col-md-3">
-                    <label for=""   > First Name In Arabic</label>
-                    <input type="text" class="form-control ">
+                    <label for="fNameinA"> First Name In Arabic</label>
+                    <input 
+                    type="text"
+                    formControlName="fNameinA"
+                    class="form-control "
+                    id="fNameinA">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Middle Name In Arabic</label>
-                    <input type="text" class=" form-control">
+                    <label for="mNameinA"> Middle Name In Arabic</label>
+                    <input 
+                    type="text" 
+                    formControlName="mNameinA"
+                    class=" form-control"
+                    id="mNameinA">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Befor Last Name In Arabic</label>
-                    <input type="text" class="form-control ">
+                    <label for="blNameinA"> Befor Last Name In Arabic</label>
+                    <input 
+                    type="text"
+                    formControlName="blNameinA" 
+                    class="form-control "
+                    id="blNameinA">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Last Name In Arabic</label>
-                    <input type="text" class=" form-control">
+                    <label for="lNameinA"> Last Name In Arabic</label>
+                    <input 
+                    type="text"
+                    formControlName="lNameinA" 
+                    class=" form-control"
+                    id="lNameinA">
                 </div>
                 
             </div>
             <div class="row mb-4">
                 <div class="col-md-3">
-                    <label for=""   > First Name In English</label>
-                    <input type="text" class="form-control ">
+                    <label for="fNameinE"> First Name In English</label>
+                    <input 
+                    type="text"
+                    formControlName="fNameinE" 
+                    id="fNameinE"
+                    class="form-control ">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Middle Name In English</label>
-                    <input type="text" class="form-control ">
+                    <label for="mNameinE"> Middle Name In English</label>
+                    <input 
+                    type="text"
+                    formControlName="mNameinE" 
+                    id="mNameinE"
+                    class="form-control ">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Before Last Name In English</label>
-                    <input type="text" class=" form-control">
+                    <label for="blNameinE"> Before Last Name In English</label>
+                    <input 
+                    type="text"
+                    formControlName="blNameinE"
+                    id="blNameinE"
+                    class=" form-control">
                 </div>
                 <div class="col-md-3">
-                    <label for=""   > Last Name In English</label>
-                    <input type="text" class="form-control ">
+                    <label for="lNameinE"> Last Name In English</label>
+                    <input 
+                    type="text" 
+                    formControlName="lNameinE"
+                    id="lNameinE"
+                    class="form-control ">
                 </div>
                 
             </div>
@@ -72,26 +120,26 @@
             <!-- checkbox&radio -->
             <div class="row my-3">
                 <div class="col-md-3 mt-2">
-                    <input class="text-start" type="checkbox" value="" id="">
-                    <label class="ms-2" for="">
+                    <input class="text-start" formControlName="research" type="checkbox" value="" id="research">
+                    <label for="research" class="ms-2" for="">
                         Research
                     </label>
                 </div>
                 <div class="col-md-3 mt-2">
-                    <input class="text-start" type="checkbox" value="" id="" >
-                    <label class="ms-2" for="">
+                    <input class="text-start" type="checkbox" formControlName="pod" value="" id="pod" >
+                    <label for="pod" class="ms-2" for="">
                         People Of Determination "POD"
                     </label>
                 </div>
                 <div class="col-md-3">
                     <div class="row">
                         <div class="col-md-6">
-                            <input type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label for="flexRadioDefault" class="ms-2"> Admin Staff</label>
+                            <input type="radio" name="adminStaff" formControlName="adminStaff" id="adminStaff">
+                            <label for="adminStaff" class="ms-2"> Admin Staff</label>
                         </div>
                         <div class="col-md-6">
-                            <input type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                            <label for="flexRadioDefault" class="ms-2"> Clincal Staff</label>
+                            <input type="radio" name="clincalStaff" formControlName="clincalStaff" id="clincalStaff">
+                            <label for="clincalStaff" class="ms-2"> Clincal Staff</label>
                         </div>
                     </div>
                     
