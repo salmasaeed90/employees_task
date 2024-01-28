@@ -1,9 +1,7 @@
-import { AddressContactInfoComponent } from './../address-contact-info/address-contact-info.component';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { AlldataService } from '../alldata.service';
+import { FormControl, FormGroup, ReactiveFormsModule,  Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-general-info',
@@ -23,25 +21,25 @@ export class GeneralInfoComponent implements OnInit{
 
   generalForm:FormGroup = new FormGroup({
 
-    staffNo:new FormControl('') ,
-    type:new FormControl('') ,
+    staffNo:new FormControl('',[Validators.required]) ,
+    type:new FormControl('',[Validators.required]) ,
     cardNum:new FormControl('') ,
-    branch:new FormControl('') ,
+    branch:new FormControl('',[Validators.required]) ,
     //////////////////////////////////////////////
-    fNameinA:new FormControl('') ,
-    mNameinA:new FormControl('') ,
-    blNameinA:new FormControl('') ,
-    lNameinA:new FormControl('') ,
+    fNameinA:new FormControl('',[Validators.required]) ,
+    mNameinA:new FormControl('',[Validators.required]) ,
+    blNameinA:new FormControl('',[Validators.required]) ,
+    lNameinA:new FormControl('',[Validators.required]) ,
     //////////////////////////////////////////////
-    fNameinE:new FormControl('') ,
-    mNameinE:new FormControl('') ,
-    blNameinE:new FormControl('') ,
-    lNameinE:new FormControl('') ,
+    fNameinE:new FormControl('',[Validators.required]) ,
+    mNameinE:new FormControl('',[Validators.required]) ,
+    blNameinE:new FormControl('',[Validators.required]) ,
+    lNameinE:new FormControl('',[Validators.required]) ,
     //////////////////////////////////////////////
-    pod:new FormControl(''),
-    research:new FormControl(''),
-    adminStaff:new FormControl(''),
-    clincalStaff:new FormControl('')
+    pod:new FormControl('',[Validators.required]),
+    research:new FormControl('',[Validators.required]),
+    adminStaff:new FormControl('',[Validators.required]),
+    clincalStaff:new FormControl('',[Validators.required])
   })
  
 

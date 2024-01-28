@@ -4,6 +4,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 
 const MaterialComponents =[
@@ -11,7 +12,10 @@ const MaterialComponents =[
   MatExpansionModule,
   MatIconModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatFormFieldModule,
+  MatDatepickerModule,
+ 
 ]
 
 @NgModule({
@@ -21,7 +25,8 @@ const MaterialComponents =[
   ],
   exports:[
     MaterialComponents
-  ]
+  ],
+   
   
 })
 export class MaterialModule { }

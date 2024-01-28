@@ -8,10 +8,22 @@
                     type="number" 
                     formControlName="staffNo"
                     class="form-control" 
-                    id="staff-no">
+                    id="staff-no"
+                    [ngClass]="{'alert alert-danger':generalForm.get('staffNo')?.getError('required')&& generalForm.get('staffNo')?.touched}">
                 </div>
                 <div class="col-md-3">
-                    <label for="type"> Type</label>
+                    <div class="dropdown ">
+                        <label for="">Type</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
+                    <!-- <label for="type"> </label>
                     <select 
                     id="type"
                     formControlName="type"
@@ -21,7 +33,7 @@
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
-                    </select>
+                    </select> -->
                 </div>
                 <div class="col-md-3">
                     <label for="card-num"> Access Card Number</label>
@@ -32,7 +44,19 @@
                     class="form-control">
                 </div>
                 <div class="col-md-3">
-                    <label for="branch"> Branch</label>
+                    <div class="dropdown ">
+                        <label for="">Branch</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100"
+                        >
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li> 
+                        </ul>
+                    </div>
+                    <!-- <label for="branch"> Branch</label>
                     <select 
                     id="branch"
                     formControlName="branch"
@@ -42,7 +66,7 @@
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
-                    </select>
+                    </select> -->
                 </div>
                 
             </div>
@@ -148,12 +172,17 @@
 
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <label for=""   >Gender</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">Male</option>
-                        <option value="2">Female</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Gender</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <label for=""   >Date Of Birth</label>
@@ -166,51 +195,72 @@
             </div>
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <label for=""   >Union</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Union</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="dropdown ">
+                        <label for="">Department</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <label for=""   >Department</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <label for=""   >Departmenr/Devision</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Departmenr/Devision</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <label for=""   >Shift Time</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Shift Time </label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <label for=""   >Religion</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Religion </label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <label for=""   >Phone</label>
@@ -219,43 +269,60 @@
             </div>
             <div class="row mb-4">
                 <div class="col-md-4">
-                    <label for=""   >Material Status</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Material Status </label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <label for=""   >Job Title</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Job Title</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <label for=""   >Job Degree</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Job Degree</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
 
             <div class="row mb-4">
                 <div class="col-md-3">
-                    <label for=""   >Indentification Type</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>National ID</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Indentification Type</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-3">
                     <label for=""   >National ID</label>
@@ -268,12 +335,17 @@
             </div>
             <div class="row mb-4">
                 <div class="col-md-5">
-                    <label for=""   >Nationality</label>
-                    <select class="p-1 form-select " aria-label="Default select example">
-                        <option selected>Please Chose Item</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
+                    <div class="dropdown ">
+                        <label for="">Nationality</label>
+                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Please Chose Item
+                        </button>
+                        <ul class="dropdown-menu w-100">
+                            <li><a class="dropdown-item" href="#">one</a></li>
+                            <li><a class="dropdown-item" href="#">two</a></li>
+                            <li><a class="dropdown-item" href="#">three</a></li>
+                        </ul>
+                    </div>
                 </div>
                 <div class="col-md-5">
                     <label for=""   > Attendence Machine Code</label>

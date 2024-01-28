@@ -29,7 +29,6 @@ export class MainPanelComponent implements OnInit{
   panelOpenState3!:boolean;
 
   dataFromGeneralInfo!:any;
-
   id = '';
   formData = '';
 
@@ -62,7 +61,10 @@ export class MainPanelComponent implements OnInit{
     )
   }
   cancelData(){
-    this._AlldataService.deleteFormData(this.id)
+  //   this._AlldataService.deleteFormData(this.id).subscribe(response =>{
+  //     console.log(response);
+      
+  //   })
   }
 
  

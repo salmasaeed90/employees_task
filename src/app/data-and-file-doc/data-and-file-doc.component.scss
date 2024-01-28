@@ -13,3 +13,14 @@ table{
 
     }
 }
+
+
+button {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+  }
+  .dropdown-toggle::after{
+    margin:  auto 15px ;
+  
+  }

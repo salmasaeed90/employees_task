@@ -28,6 +28,8 @@ export class AlldataService {
 
           formDataArr.push({value, id:key})
         }
+        console.log(formDataArr);
+        
         return formDataArr
       })
     )
@@ -37,7 +39,7 @@ export class AlldataService {
 
   deleteFormData(id:string){
     return this._HttpClient.delete
-    (`https://panelbroject-default-rtdb.firebaseio.com/panelData.json`,{})
+    (`https://panelbroject-default-rtdb.firebaseio.com/panelData.json/${id}`)
   }
 
 
