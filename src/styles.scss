@@ -38,6 +38,16 @@ $task_project-theme: mat.define-light-theme((
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+[dir="ltr"] .some-class {
+  padding-left: 10px;
+  text-align: left;
+}
+
+/* RTL specific styles */
+[dir="rtl"] .some-class {
+  padding-right: 10px;
+  text-align: right;
+}
 ///////////////////////////////////////////////////////////////////
 label{
   font-size: 14px !important;

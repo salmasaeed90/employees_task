@@ -1,0 +1,62 @@
+ <section>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        
+          <div 
+            role="listitem"
+            class="p-1 py-3 ms-3"
+            *ngFor="let employee of AllEmployeeData ; index as i ">
+            <!-- <a role="button"
+                class="list-group-item border border-1 rounded shadow p-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="list-group-item-heading ">
+                      <span>employee</span>
+                      <span> test</span>
+                      <p class="list-group-item-text">1234567891011</p>
+                    </h4>
+                    <div class="img border border-1 rounded-circle">
+                      <img src="./assets/user.png" alt="employee" class="w-100" >
+                    </div>
+                </div>
+            </a> -->
+              <a role="button"
+                class="list-group-item border border-1 rounded shadow p-3"
+                
+                (click)="ShowEmployeeDetails()"
+                (click)="onSelected(employee.id)">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h4 class="list-group-item-heading ">
+                      <span>{{employee.value.fNameinE}}</span>
+                      <span>{{employee.value.mNameinE}}</span>
+                      <p class="list-group-item-text">{{employee.value.nationalID}}</p>
+                    </h4>
+                    <div class="img w-25 h-25 w-md-50 h-md-50 border border-1 rounded-circle">
+                      <img src="./assets/user.png" alt="employee" class="w-100" >
+
+                      <!-- <img [src]="employee.value.employee" [alt]="employee.value.fNameinE" class="w-100" > -->
+                    </div>
+                </div>
+            </a>
+          </div>
+      </div>
+      
+      <div class="col-md-8" >
+        <!-- <div #details *ngIf="employeeReport">
+          <span>{{employeeDetails?.value.fNameinE}}</span>
+          <span>{{employeeDetails?.value.mNameinE}}</span>
+          <p class="list-group-item-text">{{employeeDetails?.value.nationalID}}</p>
+          <p class="list-group-item-text">{{employeeDetails?.id}}</p>
+
+        </div> -->
+        <div *ngIf="employeeReport">
+         <app-employee [showEmployeeDetails]="employeeDetails"></app-employee>  
+        </div> 
+      </div>      
+    </div>
+  </div>
+</section>
+
+
+
+

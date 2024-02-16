@@ -2,23 +2,28 @@
 <section class=" py-3 my-2">
     <div class="container bg-light">
         <div class=" p-3">
-            <button 
+            
+            <button
             (click)="saveAllData()"
-            type="button" 
+            type="submit"
             class="btn text-primary border border-primary border-1 me-2">
                 <i class="fa-solid fa-plus toggle-icon-btn m-auto"></i>
-                Save
+                {{"save" | translate}}
             </button>
             <button 
-            (click)="cancelData()"
+            (click)="resetData()"
             type="button" 
             class="btn bg-danger text-white">
                 <i class="fa-solid fa-power-off m-auto text-white d-block"></i>
-                Cancel
+                {{"clear" | translate}}
             </button>
         </div>
         <div>
-            <h2 class="bg-primary text-white d-inline-block px-3 m-3">Employee Registration / HR File</h2>
+            <h1
+            class="text-primary fw-bold d-inline-block px-3 m-3">
+            <!-- Employee Registration / HR File -->
+            {{"title" | translate }}
+        </h1>
         </div>
         <div class="bg-white border border-1 rounded p-2 mb-5">
             <mat-accordion >
@@ -26,35 +31,44 @@
                     <mat-expansion-panel hideToggle  (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                GENELAL INFORMATION
+                                {{"General Information" | translate}}
                                 <mat-icon *ngIf="!panelOpenState" class="toggle-icon ms-auto">add</mat-icon>
                                 <mat-icon *ngIf="panelOpenState" class="toggle-icon ms-auto">remove</mat-icon>
                             </mat-panel-title>
-                        </mat-expansion-panel-header> 
-                        <app-general-info (generalInfo)="generalInfoData($event)"></app-general-info>
+                        </mat-expansion-panel-header>
+                        <app-general-info #generalInfo></app-general-info> 
+                        <!-- <app-general-info (generalInfo)="generalInfoData($event)"></app-general-info> -->
+                        <!-- <app-general-info (generalInfo)="handleFormData($event, 'generalInfo')"></app-general-info> -->
                     </mat-expansion-panel>
                 </div>
                 <div class="mb-2 panel">
                     <mat-expansion-panel hideToggle  (opened)="panelOpenState3 = true" (closed)="panelOpenState3 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                ADDRESS AND CONTACT INFORMATION
+                                {{"Address & Contact Information" | translate}}
                                 <mat-icon *ngIf="!panelOpenState3" class="toggle-icon ms-auto">add</mat-icon>
                                 <mat-icon *ngIf="panelOpenState3" class="toggle-icon ms-auto">remove</mat-icon>
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <app-address-contact-info></app-address-contact-info>
+                        <app-address-contact-info #addressContact></app-address-contact-info>
+                        <!-- <app-address-contact-info (addressContact)="addressContactData($event)"></app-address-contact-info> -->
+                        <!-- <app-address-contact-info (addressContact)="handleFormData($event, 'addressContact')"></app-address-contact-info> -->
+
                     </mat-expansion-panel>
                 </div>
                 <div class="mb-2 panel">
                     <mat-expansion-panel hideToggle  (opened)="panelOpenState2 = true" (closed)="panelOpenState2 = false">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
-                                EMPLOYMENT DATA & HR FILE DOCUMENTS
+                                {{"Employment Data & HR File Documentation" | translate}}
                                 <mat-icon *ngIf="!panelOpenState2" class="toggle-icon ms-auto">add</mat-icon>
-                                <mat-icon *ngIf="panelOpenState2" class="toggle-icon ms-auto">remove</mat-icon>                            </mat-panel-title>
+                                <mat-icon *ngIf="panelOpenState2" class="toggle-icon ms-auto">remove</mat-icon>                            
+                            </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <app-data-and-file-doc></app-data-and-file-doc>
+                        <app-data-and-file-doc #dataAndFileDoc></app-data-and-file-doc>
+                        <!-- <app-data-and-file-doc (dataAndFileDoc)="dataAndFileData($event)"></app-data-and-file-doc> -->
+                        <!-- <app-data-and-file-doc (dataAndFileDoc)="handleFormData($event, 'dataAndFileDoc')"></app-data-and-file-doc> -->
+
                     </mat-expansion-panel>
                 </div>
             </mat-accordion>

@@ -1,5 +1,8 @@
 table{
-    width: 100%;
+    @media screen and (max-width:576px) {
+        width: 100%;
+        
+    }
     thead{
         background-color: #003cb3 !important;
         color: #fff !important;

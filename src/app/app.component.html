@@ -1,1 +1,16 @@
-<app-main-panel></app-main-panel>
+
+<header class="shadow">
+    <mat-toolbar color="primary">
+      <div class="container d-flex align-items-center justify-content-evenly">
+        
+        <a class="text-decoration-none text-white me-3" routerLink="/main-panel">{{"hr files" | translate}}</a>
+        <a class="text-decoration-none text-white" routerLink="/employees-list">{{'employees' | translate}}</a>
+        <div class="ms-auto lang" (click)="chooseLang()">
+            <!-- <mat-icon >translate</mat-icon> -->
+            <span>{{toggleLang ? 'Ar':'En'}}</span>
+          </div>
+        
+      </div>
+    </mat-toolbar>
+  </header>
+  <router-outlet></router-outlet>

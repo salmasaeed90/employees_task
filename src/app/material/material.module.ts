@@ -5,17 +5,40 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatCardModule} from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 
 const MaterialComponents =[
+  MatCardModule,
+  MatSidenavModule,
+  MatTabsModule,
+  MatListModule,
   MatSlideToggleModule,
+  MatToolbarModule,
   MatExpansionModule,
   MatIconModule,
   MatFormFieldModule,
   MatInputModule,
   MatFormFieldModule,
   MatDatepickerModule,
- 
+  MatTableModule,
+  MatSelectModule,
+  MatRadioModule,
+  MatCheckboxModule,
+  MatNativeDateModule,
+  MatButtonModule
 ]
 
 @NgModule({

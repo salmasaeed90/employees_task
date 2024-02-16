@@ -1,197 +1,305 @@
 <section class="pt-3">
     <div class="container">
-        <form>
+        <form [formGroup]="addressContactForm">
             <div class="row mb-3">
                 
-                <div class="col-md-3">
-                    <div class="dropdown ">
-                        <label for="">Country</label>
-                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Please Chose Item
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                            <li><a class="dropdown-item" href="#">one</a></li>
-                            <li><a class="dropdown-item" href="#">two</a></li>
-                            <li><a class="dropdown-item" href="#">three</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="country">
+                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="addressContactForm.get('Country')?.getError('required')&&
+                        addressContactForm.get('Country')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                    <div class="dropdown ">
-                        <label for="">Governorates</label>
-                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Please Chose Item
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                            <li><a class="dropdown-item" href="#">one</a></li>
-                            <li><a class="dropdown-item" href="#">two</a></li>
-                            <li><a class="dropdown-item" href="#">three</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Governorates</mat-label>
+                        <mat-select formControlName="governorates">
+                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="addressContactForm.get('governorates')?.getError('required')&&
+                        addressContactForm.get('governorates')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                    <div class="dropdown ">
-                        <label for="">City</label>
-                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Please Chose Item
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                            <li><a class="dropdown-item" href="#">one</a></li>
-                            <li><a class="dropdown-item" href="#">two</a></li>
-                            <li><a class="dropdown-item" href="#">three</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>City</mat-label>
+                        <mat-select formControlName="city">
+                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="addressContactForm.get('city')?.getError('required')&&
+                        addressContactForm.get('city')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                    <div class="dropdown ">
-                        <label for="">District</label>
-                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Please Chose Item
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                            <li><a class="dropdown-item" href="#">one</a></li>
-                            <li><a class="dropdown-item" href="#">two</a></li>
-                            <li><a class="dropdown-item" href="#">three</a></li>
-                        </ul>
-                    </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>District</mat-label>
+                        <mat-select formControlName="district">
+                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                        <!-- <mat-error *ngIf="addressContactForm.get('district')?.getError('required')&&
+                        addressContactForm.get('district')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for="" >Emergency Contact</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-md-6 mb-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Emergency Contact</mat-label>
+                        <input matInput type="text" formControlName="emergencyContact">
+                        <mat-error *ngIf="addressContactForm.get('emergencyContact')?.getError('required')&& addressContactForm.get('emergencyContact')?.touched">
+                            please file this field</mat-error>
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <div class="dropdown ">
-                        <label for="">Relation</label>
-                        <button class="btn border border-tertiary p-1 w-100 dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Please Chose Item
-                        </button>
-                        <ul class="dropdown-menu w-100">
-                            <li><a class="dropdown-item" href="#">one</a></li>
-                            <li><a class="dropdown-item" href="#">two</a></li>
-                            <li><a class="dropdown-item" href="#">three</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-3">
-                    <label for=""  >Local Address</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-                <div class="col-md-3">
-                    <label for=""  >Local Address 2</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-                <div class="col-md-3">
-                    <label for=""  >Local Address 3</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-                <div class="col-md-3">
-                    <label for=""  >Local Address 4</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-md-6 mb-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Relation</mat-label>
+                        <mat-select formControlName="relation">
+                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="addressContactForm.get('relation')?.getError('required')&&
+                        addressContactForm.get('relation')?.touched">please file this field</mat-error>
+                    </mat-form-field>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-3">
-                    <label for=""  >Premanent Address</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Local Address</mat-label>
+                        <input matInput type="text" formControlName="localAddress">
+                        <mat-error *ngIf="addressContactForm.get('localAddress')?.getError('required')&&
+                        addressContactForm.get('localAddress')?.touched">
+                            please file this field</mat-error>
+                    </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                    <label for=""  >Premanent Address 2</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Local Address 2</mat-label>
+                        <input matInput type="text" formControlName="localAddress2">
+                        <!-- <mat-error *ngIf="addressContactForm.get('localAddress2')?.getError('required')&&
+                        addressContactForm.get('localAddress2')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                    <label for=""  >Premanent Address 3</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Local Address 3</mat-label>
+                        <input matInput type="text" formControlName="localAddress3">
+                        <!-- <mat-error *ngIf="addressContactForm.get('localAddress3')?.getError('required')&&
+                        addressContactForm.get('localAddress3')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-3">
-                    <label for=""  >Premanent Address 4</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for=""  >Work Phone</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-                <div class="col-md-4">
-                    <label for=""  >Place Issuing Identity</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-                <div class="col-md-4">
-                    <label for=""  >Passport Number</label>
-                    <input type="text"  class="form-control"  >
-                </div>
-            </div>
-
-            <div class="row mb-3">
-                <div class="col-md-3">
-                    <label for=""  >Passport Expiration Date</label>
-                    <input type="date"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Local Address 4</mat-label>
+                        <input matInput type="text" formControlName="localAddress4">
+                        <!-- <mat-error *ngIf="addressContactForm.get('localAddress4')?.getError('required')&&
+                        addressContactForm.get('localAddress4')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for=""  >Driving License Number</label>
-                    <input type="number"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Premanent Address</mat-label>
+                        <input matInput type="text" formControlName="premanentAddress">
+                        <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress')?.getError('required')&&
+                        addressContactForm.get('premanentAddress')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >Date Of issuance Of License</label>
-                    <input type="date"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Premanent Address 2</mat-label>
+                        <input matInput type="text" formControlName="premanentAddress2">
+                        <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress2')?.getError('required')&&
+                        addressContactForm.get('premanentAddress2')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field> 
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >License Expiration Date</label>
-                    <input type="date"  class="form-control"  >
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Premanent Address 3</mat-label>
+                        <input matInput type="text" formControlName="premanentAddress3">
+                        <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress3')?.getError('required')&&
+                        addressContactForm.get('premanentAddress3')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field> 
+                </div>
+                <div class="col-lg-3 col-sm-6 mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Premanent Address 4</mat-label>
+                        <input matInput type="text" formControlName="premanentAddress4">
+                        <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress4')?.getError('required')&&
+                        addressContactForm.get('premanentAddress4')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>  
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for=""  >Syndicate Card</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Work Phone</mat-label>
+                        <input matInput type="tel" formControlName="workPhone">
+                        <!-- <mat-error *ngIf="addressContactForm.get('workPhone')?.getError('required')&&
+                        addressContactForm.get('workPhone')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >Work Permit</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Place Issuing Identity</mat-label>
+                        <input matInput type="tel" formControlName="placeIssuingIdentity">
+                        <!-- <mat-error *ngIf="addressContactForm.get('placeIssuingIdentity')?.getError('required')&&
+                        addressContactForm.get('placeIssuingIdentity')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >Expiration Date of Work Permit</label>
-                    <input type="date"  class="form-control"  >
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Passport Number</mat-label>
+                        <input matInput type="tel" formControlName="passportNumber">
+                        <!-- <mat-error *ngIf="addressContactForm.get('passportNumber')?.getError('required')&&
+                        addressContactForm.get('passportNumber')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6 mb-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Passport Expiration Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="passportExpirationDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <!-- <mat-error *ngIf="addressContactForm.get('passportExpirationDate')?.getError('required')
+                        && addressContactForm.get('passportExpirationDate')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Driving License Number</mat-label>
+                        <input matInput type="number" formControlName="drivingLicenseNumber">
+                        <!-- <mat-error *ngIf="addressContactForm.get('drivingLicenseNumber')?.getError('required')&&
+                        addressContactForm.get('drivingLicenseNumber')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Date Of issuance Of License</mat-label>
+                        <input matInput [matDatepicker]="picker2" formControlName="dateOfissuanceOfLicense">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                        <mat-datepicker #picker2></mat-datepicker>
+                        <!-- <mat-error *ngIf="addressContactForm.get('dateOfissuanceOfLicense')?.getError('required')
+                        && addressContactForm.get('dateOfissuanceOfLicense')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>License Expiration Date</mat-label>
+                        <input matInput [matDatepicker]="picker3" formControlName="licenseExpirationDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                        <mat-datepicker #picker3></mat-datepicker>
+                        <!-- <mat-error *ngIf="addressContactForm.get('licenseExpirationDate')?.getError('required')
+                        && addressContactForm.get('licenseExpirationDate')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Syndicate Card</mat-label>
+                        <input matInput type="text" formControlName="syndicateCard">
+                        <!-- <mat-error *ngIf="addressContactForm.get('syndicateCard')?.getError('required')&&
+                        addressContactForm.get('syndicateCard')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Work Permit</mat-label>
+                        <input matInput type="text" formControlName="workPermit">
+                        <!-- <mat-error *ngIf="addressContactForm.get('workPermit')?.getError('required')&&
+                        addressContactForm.get('workPermit')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Expiration Date of Work Permit</mat-label>
+                        <input matInput [matDatepicker]="picker4" formControlName="expirationDateofworkPermit">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+                        <mat-datepicker #picker4></mat-datepicker>
+                        <!-- <mat-error *ngIf="addressContactForm.get('expirationDateofworkPermit')?.getError('required')
+                        && addressContactForm.get('expirationDateofworkPermit')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
             </div>
 
             
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for=""  >Blood Type</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Blood Type</mat-label>
+                        <input matInput type="text" formControlName="bloodType">
+                        <!-- <mat-error *ngIf="addressContactForm.get('bloodType')?.getError('required')&&
+                        addressContactForm.get('bloodType')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >Insurence Date</label>
-                    <input type="date"  class="form-control" value=" ">
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Insurence Date</mat-label>
+                        <input matInput [matDatepicker]="picker5" formControlName="insurenceDate">
+                        <mat-datepicker-toggle matIconSuffix [for]="picker5"></mat-datepicker-toggle>
+                        <mat-datepicker #picker5></mat-datepicker>
+                        <!-- <mat-error *ngIf="addressContactForm.get('insurenceDate')?.getError('required')
+                        && addressContactForm.get('insurenceDate')?.touched">please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >Insurence Value</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-lg-4 col-sm mb-2">
+                    <mat-form-field class="d-block m-auto">
+                        <mat-label>Insurence Value</mat-label>
+                        <input matInput type="text" formControlName="insurenceValue">
+                        <!-- <mat-error *ngIf="addressContactForm.get('insurenceValue')?.getError('required')&&
+                        addressContactForm.get('insurenceValue')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
             </div>
 
             <div class="row mb-3">
-                <div class="col-md-4">
-                    <label for=""  >Insurence job Title</label>
-                    <input type="text"  class="form-control"  >
+                <div class="col-md-6 mb-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Insurence job Title</mat-label>
+                        <input matInput type="text" formControlName="insurencejobTitle">
+                        <!-- <mat-error *ngIf="addressContactForm.get('insurencejobTitle')?.getError('required')&&
+                        addressContactForm.get('insurencejobTitle')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
-                <div class="col-md-4">
-                    <label for=""  >Insurence Number</label>
-                    <input type="number"  class="form-control"  >
+                <div class="col-md-6 mb-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Insurence Number</mat-label>
+                        <input matInput type="number" formControlName="insurenceNumber">
+                        <!-- <mat-error *ngIf="addressContactForm.get('insurenceNumber')?.getError('required')&&
+                        addressContactForm.get('insurenceNumber')?.touched">
+                            please file this field</mat-error> -->
+                    </mat-form-field>
                 </div>
                 
             </div>

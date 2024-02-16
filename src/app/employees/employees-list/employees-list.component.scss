@@ -1,0 +1,10 @@
+// .img{
+//     width: 90px;
+//     height: 90px;
+// }
+.list-group-item{
+    transition: all .3s ease;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
