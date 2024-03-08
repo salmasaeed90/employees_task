@@ -339,40 +339,36 @@
             <div class="row mb-4">
                 <div class="col-md-6 mb-2">
                     <div class="img d-flex align-items-center mb-3">
-                        <span>Signatur</span>
                         <div class="upload-img border border-1 ms-2">
                             <img [src]="signaturImgSrc" alt="" class="form-control" width="120px" height="120px">
                         </div>
                     </div>
                     <div class="upload mt-3">
-                        <input 
-                        type="file" 
-                        class="form-control"
-                        name="signatur"
-                        formControlName="signatur"
-                        (change)="signaturImgSrcFromFile($event)"
-                        >
-                        <!-- (change)="signaturImgSrcFromFile($event)" -->
+                        <!-- <mat-form-field class=""> -->
+                            <h4 class="text-primary fw-bold">Signatur</h4> 
+                            
+                            <button type="button" class="px-5" mat-raised-button color="primary" (click)="signaturFile.click()">Choose File</button>
+                            <input  hidden (change)="signaturImgSrcFromFile($event)" #signaturFile type="file" formControlName="signatur" >
+                        <!-- </mat-form-field> -->
+                        
                     </div>
                     <p *ngIf="generalForm.get('signatur')?.getError('required')&& generalForm.get('signatur')?.touched" 
                         class="text-danger ">please file this field</p>
                 </div>
                 <div class="col-md-6 mb-2">
                     <div class="img d-flex align-items-center mb-3">
-                        <span>Employee</span>
+                        <span></span>
                         <div class="upload-img border border-1 ms-2">
                             <img [src]="employeeImgSrc" alt="" class="form-control" width="120px" height="120px">
                         </div>
                     </div>
                     <div class="upload mt-3">
-                        <input 
-                        type="file" 
-                        class="form-control"
-                        name="employee"
-                        formControlName="employee"
-                        (change)="employeeImgSrcFromFile($event)"
-                        >
-                        <!--(change)="employeeImgSrcFromFile($event)"  -->
+                        
+                        <h4 class="text-primary fw-bold">Employee Image</h4> 
+                            
+                        <button type="button" class="px-5" mat-raised-button color="primary" (click)="employeeFile.click()">Choose File</button>
+                        <input  hidden (change)="employeeImgSrcFromFile($event)" #employeeFile type="file" formControlName="employeeImg" >
+                        
                     </div>
                     <p *ngIf="generalForm.get('employee')?.getError('required')&& generalForm.get('employee')?.touched" 
                         class="text-danger ">please file this field</p>

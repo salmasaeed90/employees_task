@@ -2,12 +2,12 @@
 export const environment ={
     production : false,
     firebaseConfig : {
-    apiKey: "AIzaSyDAFrjwuYFzVdnc1LmOm3sqC__aYSAt3MA",
-    authDomain: "panelbroject.firebaseapp.com",
-    databaseURL: "https://panelbroject-default-rtdb.firebaseio.com",
-    projectId: "panelbroject",
-    storageBucket: "panelbroject.appspot.com",
-    messagingSenderId: "899654559162",
-    appId: "1:899654559162:web:ad279e563602075e88a983",
-    measurementId: "G-THHRQB09MX"
+        apiKey: "AIzaSyBptHgYs7aQzJuNO_Q3bQyuIK8rCI8RzA0",
+        authDomain: "employees-adbc0.firebaseapp.com",
+        databaseURL: "https://employees-adbc0-default-rtdb.firebaseio.com",
+        projectId: "employees-adbc0",
+        storageBucket: "employees-adbc0.appspot.com",
+        messagingSenderId: "976320440057",
+        appId: "1:976320440057:web:99ddb9f713552dbe566428",
+        measurementId: "G-HH8KXCT8GB"
 }}

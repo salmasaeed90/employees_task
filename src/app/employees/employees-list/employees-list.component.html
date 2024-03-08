@@ -1,58 +1,112 @@
  <section>
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="col-md-4">
-        
-          <div 
+      <div class=" col-sm-12 mb-2">
+        <div class="col-sm-6 m-auto d-block">
+          <mat-form-field class="search p-1 mt-3 ms-2 w-100">
+              <mat-label>Filter....</mat-label>
+              <input matInput type="text" [(ngModel)]="employeeName"  >
+              <!-- (keyup)="applyFilter($event)" -->
+          </mat-form-field>
+        </div>
+          <!-- <div 
             role="listitem"
-            class="p-1 py-3 ms-3"
-            *ngFor="let employee of AllEmployeeData ; index as i ">
-            <!-- <a role="button"
-                class="list-group-item border border-1 rounded shadow p-3">
-                <div class="d-flex align-items-center justify-content-between">
-                    <h4 class="list-group-item-heading ">
-                      <span>employee</span>
-                      <span> test</span>
-                      <p class="list-group-item-text">1234567891011</p>
-                    </h4>
-                    <div class="img border border-1 rounded-circle">
-                      <img src="./assets/user.png" alt="employee" class="w-100" >
-                    </div>
-                </div>
-            </a> -->
+            class="listitem p-3 py-3 ms-3 border border-1 rounded shadow m-3"
+            *ngFor="let employee of AllEmployeeData$ | async ; index as i "
+            >
               <a role="button"
-                class="list-group-item border border-1 rounded shadow p-3"
+                class="list-group-item "
+                [routerLink]="['/employee',employee.id]"
                 
-                (click)="ShowEmployeeDetails()"
-                (click)="onSelected(employee.id)">
+                >
                 <div class="d-flex align-items-center justify-content-between">
                     <h4 class="list-group-item-heading ">
-                      <span>{{employee.value.fNameinE}}</span>
-                      <span>{{employee.value.mNameinE}}</span>
-                      <p class="list-group-item-text">{{employee.value.nationalID}}</p>
+                      <span>{{employee.fNameinE}}</span>
+                      <span>{{employee.mNameinE}}</span>
+                      <p class="list-group-item-text">{{employee.nationalID}}</p>
                     </h4>
                     <div class="img w-25 h-25 w-md-50 h-md-50 border border-1 rounded-circle">
-                      <img src="./assets/user.png" alt="employee" class="w-100" >
-
-                      <!-- <img [src]="employee.value.employee" [alt]="employee.value.fNameinE" class="w-100" > -->
+                      
                     </div>
                 </div>
+                
             </a>
-          </div>
-      </div>
-      
-      <div class="col-md-8" >
-        <!-- <div #details *ngIf="employeeReport">
-          <span>{{employeeDetails?.value.fNameinE}}</span>
-          <span>{{employeeDetails?.value.mNameinE}}</span>
-          <p class="list-group-item-text">{{employeeDetails?.value.nationalID}}</p>
-          <p class="list-group-item-text">{{employeeDetails?.id}}</p>
+            <div class="d-flex align-items-center justify-content-around">
+              <button mat-button color="warn" (click)="deleteEmployee(employee.id)">Delete</button>
+              <button mat-button color="primary" >Update</button>
+            </div>
+          </div>  -->
+          
+          <div class="mat-elevation-z8 example-container">
+            <table mat-table [dataSource]="AllEmployeeData | search : employeeName" >
+              <!-- |search :employeeName -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID. </th>
+                <td mat-cell *matCellDef="let element">{{element.id }}  </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="fNameinE">
+                <th mat-header-cell *matHeaderCellDef>  Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.fNameinE +' '+ element.mNameinE}} </td>
+              </ng-container>
+            
+              
+              <ng-container matColumnDef="localAddress">
+                <th mat-header-cell *matHeaderCellDef> Address </th>
+                <td mat-cell *matCellDef="let element"> {{element.localAddress}} </td>
+              </ng-container>
 
-        </div> -->
-        <div *ngIf="employeeReport">
-         <app-employee [showEmployeeDetails]="employeeDetails"></app-employee>  
-        </div> 
-      </div>      
+              
+              <ng-container matColumnDef="gender">
+                <th mat-header-cell *matHeaderCellDef> Gender </th>
+                <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="nationality">
+                <th mat-header-cell *matHeaderCellDef> Nationality </th>
+                <td mat-cell *matCellDef="let element"> {{element.nationality}} </td>
+              </ng-container>
+
+              
+              <ng-container matColumnDef="BasicSalary">
+                <th mat-header-cell *matHeaderCellDef> Basic Salary </th>
+                <td mat-cell *matCellDef="let element"> {{element.basicSalary}} </td>
+              </ng-container>
+              
+              <ng-container matColumnDef="menu">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let element"> 
+                  <button mat-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu" xPosition="after">
+                    <button mat-menu-item class=" text-center ">
+                      <button mat-button  color="warn" class="fw-bold" (click)="deleteEmployee(element.id)">Delete</button>
+                    </button>
+                    <button mat-menu-item class="px-2 text-center m-auto d-block">
+                      <button mat-button color="primary" class="fw-bold"  [routerLink]="['/updateEmployee',element.id]">Update</button>
+                    </button>
+                    <button mat-menu-item class=" text-center ">
+                      <button mat-button class="fw-bold" color="primary" [routerLink]="['/employee',element.id]">Details</button>
+
+                    </button>
+                  </mat-menu>
+                </td>
+              </ng-container>
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+              
+            </table>
+            <mat-paginator
+                [pageSizeOptions]="[5, 10, 25, 100]" 
+                aria-label="Select page of users">
+            </mat-paginator>
+          </div>
+          
+      </div>
     </div>
   </div>
 </section>

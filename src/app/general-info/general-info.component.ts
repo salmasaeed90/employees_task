@@ -2,11 +2,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { FormControl, FormGroup, ReactiveFormsModule,  Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-// interface DropdownOptions{
-//   option1:string,
-//   option2:string
-// }
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { finalize } from 'rxjs';
+
 @Component({
   selector: 'app-general-info',
   standalone: true,
@@ -17,15 +16,11 @@ import { Observable } from 'rxjs';
 export class GeneralInfoComponent implements OnInit{
   signaturImgSrc='';
   employeeImgSrc='';
-  //dropdownOptions$!:Observable<DropdownOptions[]>;
   dropdownOptions:string[]=['option1', 'option2'];
   generalForm!:FormGroup;
-  constructor(){}
-//   @Output('generalInfo') generalInfo = new EventEmitter<any>()
+  constructor(private AngularFireStorage:AngularFireStorage,
+    private AngularFirestore:AngularFirestore){}
 
-//  ngOnInit(): void {
-//   this.generalInfo.emit(this.generalForm.value);    
-//   }
  
 ngOnInit(): void {
   this.generalForm = new FormGroup({
@@ -76,7 +71,7 @@ ngOnInit(): void {
     //img
     //file
     signatur:new FormControl('',[Validators.required]),
-    employee:new FormControl('',[Validators.required]),
+    employeeImg:new FormControl('',[Validators.required]),
 
     ///////////////////////////////////////////////////////
     personalEmailAddress:new FormControl('',[Validators.required,Validators.email]),
@@ -85,16 +80,14 @@ ngOnInit(): void {
   
   
   })
+ 
 }
 
-// handleFileInput(event: any) {
-//   if(event.target.files){
-//     const objectURL = URL.createObjectURL(event.target.files[0]);
-//     this.signaturImgSrc = objectURL;
-//     this.employeeImgSrc = objectURL;
-//   }
-// }
+//handell upload files
+
+////////////////////////////
   signaturImgSrcFromFile(event:any):void{
+ 
     if(event.target.files){
       const reader = new FileReader();
       reader.readAsDataURL(event.target.files[0]);
@@ -105,15 +98,30 @@ ngOnInit(): void {
   }
 
 
-  employeeImgSrcFromFile(event:any):void{
-    if(event.target.files){
+  async employeeImgSrcFromFile(event:any){
+    const file = event.target.files[0]
+    //select
+    if(file){
       const reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
+      reader.readAsDataURL(file);
       reader.onload=(event:any)=>{
         this.employeeImgSrc = event.target.result
       }
     }
+
+    //upload
+    // const formData = new FormData();
+    // formData.append('file', this.generalForm.get('employee')?.value);
+    // console.log(this.generalForm.value);
+    if(file){
+      //uploaded to fireStorage
+      const path = `file/${file.name}`;
+      const uploadedFile =await this.AngularFireStorage.upload(path, file);
+      console.log(uploadedFile);
+      ///
+    }
+
   }
 
-
 }
+

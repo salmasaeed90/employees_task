@@ -12,14 +12,17 @@ import { AlldataService } from './alldata.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SearchPipe } from './search.pipe';
+import { FormsModule } from '@angular/forms';
 
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
+import { environment } from '../environments/environment';
 
 
-// import { AngularFire } from '@angular/fire';
-// import { FirestoreModule } from '@angular/fire/firestore'; // for Firestore
-// import { DatabaseModule } from '@angular/fire/database'; // for Realtime Database
-// import { environment } from '../environments/environment';
 
 
 
@@ -31,7 +34,7 @@ export function HttpLoaderFactory() {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,6 +43,16 @@ export function HttpLoaderFactory() {
     MaterialModule,
     MainPanelComponent,
     HttpClientModule,
+    FormsModule,
+
+  
+
+
+    
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    
 
 
 

@@ -1,21 +1,36 @@
-table{
-    @media screen and (max-width:576px) {
-        width: 100%;
-        
-    }
-    thead{
-        background-color: #003cb3 !important;
-        color: #fff !important;
-        padding: 10px !important;
-    }
-    td,tr,th,thead,tbody{
-        border: 1px solid #999;
-    }
-    button{
-        font-size: 12px;
 
-    }
+
+
+.table{
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+  // border: 1px solid #003cb3;
 }
+
+
+
+  
+  table tr{
+      background-color: #003cb3 !important;
+      color: #fff !important;
+      // padding: 10px !important;
+      text-align: center;
+    
+  }
+  
+  table td,
+  table tr,
+  table th{
+    border: 1px solid #003cb3 !important;
+  }
+  
+  table button{
+      font-size: 12px;
+
+  }
+
+  
 
 
 button {

@@ -5,6 +5,8 @@ import { AlldataService } from '../../alldata.service';
 import { MaterialModule } from '../../material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-employee',
@@ -16,10 +18,11 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class EmployeeComponent {
   employeeId!:string | null;
+  showDetails:any = {}
 
-  @Input() showEmployeeDetails!:any
   constructor(private _ActivatedRoute:ActivatedRoute,
-    private _AlldataService:AlldataService){}
+    private _AlldataService:AlldataService,
+    private _AngularFirestore:AngularFirestore ){}
 
 
   ngOnInit(): void {
@@ -27,17 +30,30 @@ export class EmployeeComponent {
     this._ActivatedRoute.paramMap.subscribe({
       next:(params)=>{
         this.employeeId = params.get('id');
+        //console.log(this.employeeId);
+        
       }
     })
 
-    this.displayEmployeeData()
+    this.showEmployeeDetails()
   }
 
-  displayEmployeeData(){
-    //this._AlldataService.getEmployeeById(this.employeeId).subscribe(res => console.log(res))
-      
-      
-  
-  }
+  showEmployeeDetails() {
+    
+    
+    this._AngularFirestore.doc(`employees/${this.employeeId}`).valueChanges()
+    .subscribe({
+      next:(res) =>{
+        //console.log(res);
+        this.showDetails = res;
+        //console.log( this.showDetails.fNameinE);
+      },
+      error: (err) =>{
+        console.log(err);
+        
+      }
+    })
+    return this.showDetails
+    }
 
 }

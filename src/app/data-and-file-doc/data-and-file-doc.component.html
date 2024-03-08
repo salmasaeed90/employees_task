@@ -123,12 +123,15 @@
             </div>
 
             <div class="row mb-4 ">
-                <div class="col-md-9 d-flex align-items-baseline justify-content-between">
-
-                    <div class="example-label">Contract Type</div>
-                    <button mat-raised-button>Permanent</button>
-                    <button mat-raised-button color="primary">Temporary</button>
-                
+                <div class="col-md-9 d-flex align-items-baseline ">
+                    <h3>Contract Type</h3>
+                    <mat-radio-group aria-label="Select an option" color="primary">
+                        <mat-radio-button type="radio" ngDefaultControl  formControlName="contractType" value="permanent">Permanent</mat-radio-button>
+                        <mat-radio-button type="radio" ngDefaultControl formControlName="contractType" value="temporary">Temporary</mat-radio-button>
+                    </mat-radio-group>
+                    <mat-error *ngIf="dataAndFileDocForm.get('contractType')?.getError('required')&& dataAndFileDocForm.get('contractType')?.touched" 
+                    class="text-danger ">please file this field</mat-error>
+            
                 </div>
             </div> 
 
@@ -186,118 +189,208 @@
                     class="text-danger ">please file this field</mat-error>
                 </div>
             </div>
+           
 
-            <div class="p-1 bg-light ">
-                <h1>HR File</h1>
-            </div>
-
-        <div class="">
-            <div class="col-md-12 mt-3 ">
-                <!-- <table mat-table>
-                    <ng-container >
-                        <th mat-header-cell > Hiring Document </th>
-                        <td mat-cell > certificates </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > Mandatory </th>
-                        <td mat-cell > 
-                            <button class="btn rounded-bill bg-success text-white p-0">Yes</button> </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > Status </th>
-                        <td mat-cell > Pending </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > Hiring Document File </th>
-                        <td mat-cell  class="d-flex align-items-center justify-content-evenly"> 
-                            <button class="btn  bg-primary text-white px-2">Chose File</button>
-                            <button class="btn  bg-info rounded-0 px-3 px-0 text-white px-2">Upload File</button> </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > View </th>
-                        <td mat-cell >  </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > Expiry Date </th>
-                        <td mat-cell > <input type="date" class="form-control"> </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > Recieve Date </th>
-                        <td mat-cell > 
-                            <input type="text" class="w-75 form-control"> </td>
-                    </ng-container>
-                    <ng-container >
-                        <th mat-header-cell > Confirm </th>
-                        <td mat-cell >
-                            <button class="btn rounded-1 bg-primary text-white">Confirm</button>
-                        </td>
-                    </ng-container>
-                </table> -->
-                <table class="border border-1  ">
-                    <thead class="">
-                        <tr class="">
-                        <th scope="col">Hiring Document</th>
-                        <th scope="col">Mandatory</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Hiring Document File</th>
-                        <th scope="col">View</th>
-                        <th scope="col">Expiry Date</th>
-                        <th scope="col">Recieve Date</th>
-                        <th scope="col">Confirm</th>
-                        </tr>
-                    </thead>
-                    <tbody class="border border-1">
-                        <tr>
-                        <td>certificates</td>
-                        <td><button class="btn rounded-bill bg-success text-white p-0">Yes</button></td>
-                        <td>Pending</td>
-                        <td class="d-flex align-items-center justify-content-evenly">
-                            <button class="btn  bg-primary text-white px-2">Chose File</button>
-                            <button class="btn  bg-info rounded-0 px-3 px-0 text-white px-2">Upload File</button>
-                        </td>
-                        <td></td>
-                        <td><input type="date" class="form-control"></td>
-                        <td><input type="text" class="w-75 form-control"></td>
-                        <td><button class="btn rounded-1 bg-primary text-white">Confirm</button></td>
-                        </tr>
-                        <tr>
-                        <td>certificates</td>
-                        <td><button class="btn rounded-bill bg-success text-white p-0">Yes</button></td>
-                        <td>Pending</td>
-                        <td class="d-flex align-items-center justify-content-evenly">
-                            <button class="btn  bg-primary text-white px-2">Chose File</button>
-                            <button class="btn  bg-info rounded-0 px-3 px-0 text-white px-2">Upload File</button>
-                        </td>
-                        <td></td>
-                        <td><input type="date" class="form-control"></td>
-                        <td><input type="text" class="w-75 form-control"></td>
-                        <td><button class="btn rounded-1 bg-primary text-white">Confirm</button></td>
-                        </tr> 
-                    </tbody>
-                </table> 
-            </div>
-        </div> 
-
-        <div class="row">
-            <div class="col-md-6 mb-2">
-                <mat-form-field class="w-100">
-                    <mat-label>Remarks</mat-label>
-                    <input matInput type="number" formControlName="remarks">
-                    <mat-error *ngIf="dataAndFileDocForm.get('remarks')?.getError('required')&&
-                    dataAndFileDocForm.get('remarks')?.touched">
-                        please file this field</mat-error>
-                </mat-form-field>
-            </div>
-        </div>
-
-
-
-            <!-- /////////////////////////////////////////////////////////////////////////////////////// -->
            
             
+            <div class="p-1 bg-light ">
+            <h1>HR File</h1>
+            </div>
+            <!-- table -->
+            <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class=" table">
+                    
+                    
+
+                        <table>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Hiring Document</th>
+                                    
+                                        <th scope="col">Mandatory</th>
+                                    
+                                        <th scope="col">Status</th>
+                                    
+                                        <th scope="col">View</th>
+                                    
+                                        <th scope="col">Expiry Date</th>
+                                    
+                                        <th scope="col">Recieve Date</th>
+
+                                        <th  colspan="2">Hiring Document File</th>
+                                    
+                                        <!-- <th scope="col"></th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="border border-1 pb-0">
+                                        <tr formGroupName="certificates">
+                                                <td scope="col" >
+                                                    <mat-form-field class="">
+                                                        <mat-label>Hiring Document</mat-label>
+                                                        <mat-select formControlName="documentHiringtype">
+                                                            <mat-option *ngFor="let option of certficateType" [value]="option">{{option}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td scope="col">
+                                                    <mat-form-field class="">
+                                                        <mat-label>Mandatory</mat-label>
+                                                        <mat-select formControlName="documentHiringMandatory">
+                                                            <mat-option *ngFor="let option of certificateMandatory" [value]="option">{{option}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td scope="col">
+                                                    <mat-form-field class="">
+                                                        <mat-label>Status</mat-label>
+                                                        <mat-select formControlName="documentHiringStatus">                          
+                                                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </td>
+                                                
+                                                <td scope="col">
+                                                    <mat-form-field class="">
+                                                        <mat-label>View</mat-label>
+                                                        <input matInput type="text" formControlName="documentHiringView">
+                                                    </mat-form-field>
+                                                </td>
+                                                <td scope="col">
+                                                    <mat-form-field class="">
+                                                        <mat-label>Expiry Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker11" formControlName="documentHiringExpiryDate">
+                                                        <mat-datepicker-toggle matIconSuffix [for]="picker11"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker11></mat-datepicker>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td scope="col">
+                                                    <mat-form-field class="">
+                                                        <mat-label>Recieve Date</mat-label>
+                                                        <input matInput [matDatepicker]="picker12" formControlName="documentHiringRecieveDate" >
+                                                        <mat-datepicker-toggle matIconSuffix [for]="picker12"></mat-datepicker-toggle>
+                                                        <mat-datepicker #picker12></mat-datepicker>
+                                                    </mat-form-field>
+                                                </td>
+                                                <td  colspan="2">
+                                                    <div class=" mx-4 mb-3 ">
+                                                            <!-- <mat-form-field class=""> -->
+                                                        <!-- <mat-label>Hiring Document File</mat-label> -->
+                                                        <!-- <input matInput type="text" [(ngModel)]="documentHiringFile"> -->
+                                                        <button type="button" class="px-5" mat-raised-button (click)="certFile.click()">Choose File</button>
+                                                        <input  hidden (change)="onFileSelected_1($event)" #certFile type="file" formControlName="documentHiringFile">
+                                                        <span class="ms-2 w-25 d-block">{{certificateFile?.name}}</span>
+                                                    <!-- </mat-form-field> -->
+
+                                                    </div>
+                                                    
+                                                </td>
+                                                <!-- <td scope="col" >
+                                                    <button mat-raised-button  
+                                                    type="submit"  
+                                                    class="  mb-4"
+                                                    (click)="confirmCertificates()">Confirm</button>
+                                                </td> -->
+                                        </tr>
+
+
+                                        <!-- ///////////////////////// -->
+                                        <tr formGroupName="birthCertificate">
+                                            <td scope="col" >
+                                                <mat-form-field class="">
+                                                    <mat-label>Hiring Document</mat-label>
+                                                    <mat-select formControlName="birthDocumentHiringtype">
+                                                        <mat-option *ngFor="let option of certficateType" [value]="option">{{option}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </td>
+                                            <td scope="col">
+                                                <mat-form-field class="">
+                                                    <mat-label>Mandatory</mat-label>
+                                                    <mat-select formControlName="birthDocumentHiringMandatory">
+                                                        <mat-option *ngFor="let option of certificateMandatory" [value]="option">{{option}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </td>
+                                            <td scope="col">
+                                                <mat-form-field class="">
+                                                    <mat-label>Status</mat-label>
+                                                    <mat-select formControlName="birthDocumentHiringStatus">                          
+                                                        <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                                    </mat-select>
+                                                </mat-form-field>
+                                            </td>
+                                            
+                                            <td scope="col">
+                                                <mat-form-field class="">
+                                                    <mat-label>View</mat-label>
+                                                    <input matInput type="text" formControlName="birthDocumentHiringView">
+                                                </mat-form-field>
+                                            </td>
+                                            <td scope="col">
+                                                <mat-form-field class="">
+                                                    <mat-label>Expiry Date</mat-label>
+                                                    <input matInput [matDatepicker]="picker13" formControlName="birthDocumentHiringExpiryDate">
+                                                    <mat-datepicker-toggle matIconSuffix [for]="picker13"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker13></mat-datepicker>
+                                                </mat-form-field>
+                                            </td>
+                                            <td scope="col">
+                                                <mat-form-field class="">
+                                                    <mat-label>Recieve Date</mat-label>
+                                                    <input matInput [matDatepicker]="picker14" formControlName="birthDocumentHiringRecieveDate" >
+                                                    <mat-datepicker-toggle matIconSuffix [for]="picker14"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker14></mat-datepicker>
+                                                </mat-form-field>
+                                            </td>
+                                            <td  colspan="2">
+                                                
+                                                    <div class=" mx-4 mb-3 ">
+                                                            <!-- <mat-form-field class=""> -->
+                                                        <!-- <mat-label>Hiring Document File</mat-label> -->
+                                                        <!-- <input matInput type="text" [(ngModel)]="documentHiringFile"> -->
+                                                        <button type="button" class="px-5" mat-raised-button (click)="birthcertFile.click()">Choose File</button>
+                                                        <input  hidden (change)="onFileSelected_2($event)" #birthcertFile type="file" formControlName="birthDocumentHiringFile">
+                                                        <span class="ms-2 w-25 d-block">{{birthcertificateFile?.name}}</span>
+                                                    <!-- </mat-form-field> -->
+
+                                                    </div>
+                                                    
+                                                
+                                                <!-- <mat-form-field class="">
+                                                    <mat-label>Hiring Document File</mat-label>
+                                                    <input matInput type="text" [(ngModel)]="birthDocumentHiringFile">
+                                                    
+                                                </mat-form-field> -->
+                                            </td>
+                                            <!-- <td scope="col" >
+                                                <button mat-raised-button  
+                                                type="submit"  
+                                                class="  mb-4"
+                                                (click)="confirmBirthCertificate()">Confirm</button>
+                                            </td> -->
+                                    </tr>
+                                </tbody>
+                        </table>
+                    
+                </div> 
+            </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-2 mt-5">
+                    <mat-form-field class="w-100">
+                        <mat-label>Remarks</mat-label>
+                        <input matInput type="text" formControlName="remarks">
+                        <mat-error *ngIf="dataAndFileDocForm.get('remarks')?.getError('required')&&
+                        dataAndFileDocForm.get('remarks')?.touched">
+                            please file this field</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
         </form>
     </div>
-   
+    
     
    
 </section>

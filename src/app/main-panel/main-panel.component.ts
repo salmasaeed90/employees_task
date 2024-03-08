@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import {  Router, RouterLink } from '@angular/router';
 import { TranslateModule, TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-main-panel',
@@ -22,7 +23,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     RouterLink,
     TranslateModule,
-    HttpClientModule
+    HttpClientModule,
+    
     
   ],
 
@@ -51,7 +53,7 @@ export class MainPanelComponent {
     private _AlldataService:AlldataService,
     private translate:TranslateService,
     private _Router:Router,
-    // private _FormBuilder:FormBuilder
+    private firestore: AngularFirestore
     ){
       translate.setDefaultLang('en');
       translate.use('en');
@@ -61,49 +63,23 @@ export class MainPanelComponent {
     chooseLang(lang:string){
       this.translate.use(lang)
     }
-
-
-    changeCurrentLang(lang:string){
-      this.translate.use(lang);
-      localStorage.setItem('currentLang',lang)
-    }
-
-
-  //////////////////////////////////////////////////////////////
-  // handleFormData(data: any, childId:string){
-  //   this.allData[childId] = data;
-  // }
-  
-  
-  
-
-  // addressContactData(formData:any){
-  //   this.dataFromAddressContact = formData
-  // }
-  // dataAndFileData(formData:any){
-  //   this.dataFromFileDoc = formData
-  // }
-  // generalInfoData(formData:any){
-  //   this.dataFromGeneralInfo = formData
-  // }
-  // submitGeneralInfo(){
-  //   this._AlldataService.postGeneralInfoToDB(this.dataFromGeneralInfo)
-  // }
   
   saveAllData(){
     
     const combineAllFormsData = {
       ...this.AddressContactInfoComponent.addressContactForm.value,
       ...this.DataAndFileDocComponent.dataAndFileDocForm.value,
-      ...this.GeneralInfoComponent.generalForm.value
+      ...this.GeneralInfoComponent.generalForm.value,
+      ...this.DataAndFileDocComponent.certificates,
+      ...this.DataAndFileDocComponent.birthCertificate
     }
-    this._AlldataService.postToDB(combineAllFormsData);
+    // this._AlldataService.postToDB(combineAllFormsData);
+     this.firestore.collection('employees').add(combineAllFormsData);
+    
     this._Router.navigate(['/employees-list'])
   }
 
-  // postToFirebase(data: any) {
-  //   this._AlldataService.postToDB(data)
-  // }
+  
 
   resetData(){
     this.AddressContactInfoComponent.addressContactForm.reset();

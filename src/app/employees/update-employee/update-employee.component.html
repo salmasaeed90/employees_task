@@ -1,0 +1,1138 @@
+<div class="taps pt-3 w-100">
+    <div class="container">
+        <form action="" (ngSubmit)=" updateEmployeeData()">
+            <div class="buttons my-3">
+                <button mat-raised-button type="submit"  color="primary" >Update</button>
+
+            </div>
+            <mat-tab-group animationDuration="200ms" class="mb-5" >
+                <div>
+                
+                    <mat-tab label="General Information">
+                        <section class="container mt-4">
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-sm-6 mb-2 ">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Staff No.</mat-label>
+                                        <input matInput type="text"
+                                        [(ngModel)]="employeeData.staffNo" [ngModelOptions]="{standalone:true}" >
+                                        <!-- <mat-error *ngIf="generalForm.get('staffNo')?.getError('required')&& generalForm.get('staffNo')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Type</mat-label>
+                                        <mat-select  [(ngModel)]="employeeData.type" [ngModelOptions]="{standalone:true}">
+                                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="generalForm.get('type')?.getError('required')&&
+                                        generalForm.get('type')?.touched">please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Access Card Number</mat-label>
+                                        <input matInput type="number" [(ngModel)]="employeeData.cardNum" [ngModelOptions]="{standalone:true}">
+                                        <mat-hint>should be at least 15 number</mat-hint>
+                                        <!-- <mat-error *ngIf="generalForm.get('cardNum')?.getError('minlength') 
+                                        // && generalForm.get('cardNum')?.getError('maxlength')">
+                                        // must be from 15 to 20</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Branch</mat-label>
+                                        <mat-select   [(ngModel)]="employeeData.branch" [ngModelOptions]="{standalone:true}">
+                                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">
+                                                {{option}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="generalForm.get('branch')?.getError('required')&&
+                                        generalForm.get('branch')?.touched">please file this field</mat-error> -->
+                                    </mat-form-field>
+                                    
+                                </div>
+                                
+                            </div>
+                
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>First Name In Arabic</mat-label>
+                                        <input matInput type="text"  [(ngModel)]="employeeData.fNameinA" [ngModelOptions]="{standalone:true}" >
+                                        <!-- <mat-error *ngIf="generalForm.get('fNameinA')?.getError('required')&& generalForm.get('fNameinA')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Middle Name In Arabic</mat-label>
+                                        <input matInput type="text"
+                                        [(ngModel)]="employeeData.mNameinA" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('mNameinA')?.getError('required')&& generalForm.get('mNameinA')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Befor Last Name In Arabic</mat-label>
+                                        <input matInput type="text"
+                                        [(ngModel)]="employeeData.blNameinA" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('blNameinA')?.getError('required')&& generalForm.get('blNameinA')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Last Name In Arabic</mat-label>
+                                        <input matInput type="text" [(ngModel)]="employeeData.lNameinA" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('lNameinA')?.getError('required')&& generalForm.get('lNameinA')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                
+                            <div class="row mb-4">
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>First Name In English</mat-label>
+                                        <input matInput type="text" [(ngModel)]="employeeData.fNameinE" [ngModelOptions]="{standalone:true}" >
+                                        <!-- <mat-error *ngIf="generalForm.get('fNameinE')?.getError('required')&& generalForm.get('fNameinE')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Middle Name In English</mat-label>
+                                        <input matInput type="text" [(ngModel)]="employeeData.mNameinE" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('mNameinE')?.getError('required')&& generalForm.get('mNameinE')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                    
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Before Last Name In English</mat-label>
+                                        <input matInput type="text" [(ngModel)]="employeeData.blNameinE" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('blNameinE')?.getError('required')&& generalForm.get('blNameinE')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3 col-sm-6  mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Last Name In English</mat-label>
+                                        <input matInput type="text" [(ngModel)]="employeeData.lNameinE" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('lNameinE')?.getError('required')&& generalForm.get('lNameinE')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                
+                            </div>
+                
+                            <!-- checkbox&radio -->
+                            <div class="row my-3">
+                                <div class="col-md-3 mt-2">
+                                    <mat-checkbox class="example-margin" color="primary"
+                                    [(ngModel)]="employeeData.research" [ngModelOptions]="{standalone:true}">Research</mat-checkbox>
+                                    <!-- <mat-error *ngIf="generalForm.get('research')?.getError('required')&& generalForm.get('research')?.touched" 
+                                    class="text-danger ">please file this field</mat-error> -->
+                                </div>
+                                <div class="col-md-3 mt-2">
+                                    <mat-checkbox class="example-margin" color="primary" [(ngModel)]="employeeData.peopleOfDetermination" [ngModelOptions]="{standalone:true}" 
+                                    >People Of Determination "POD"</mat-checkbox>
+                                    <!-- <mat-error *ngIf="generalForm.get('peopleOfDetermination')?.getError('required')&& generalForm.get('peopleOfDetermination')?.touched" 
+                                    class="text-danger ">please file this field</mat-error> -->
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <div class=" d-flex">
+                                        <mat-radio-group aria-label="Select an option" color="primary">
+                                            <mat-radio-button type="radio" ngDefaultControl [(ngModel)]="employeeData.staff" [ngModelOptions]="{standalone:true}"  value="adminStaff">Admin Staff</mat-radio-button>
+                                            <mat-radio-button type="radio" ngDefaultControl [(ngModel)]="employeeData.staff" [ngModelOptions]="{standalone:true}"  value="clincalStaff">Clincal Staff</mat-radio-button>
+                                        </mat-radio-group>
+                                          <!-- <mat-error *ngIf="generalForm.get('staff')?.getError('required')
+                                            && generalForm.get('staff')?.touched">
+                                            please file this field</mat-error> -->
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                
+                            <div class="row mb-4">
+                                <div class="col-lg-4 col-sm mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Gender</mat-label>
+                                        <mat-select  [(ngModel)]="employeeData.gender" [ngModelOptions]="{standalone:true}">
+                                            <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                        </mat-select>
+                                        <!-- <mat-error *ngIf="generalForm.get('gender')?.getError('required')&&
+                                        generalForm.get('gender')?.touched">please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4 col-sm mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label>Date Of Birth</mat-label>
+                                        <input matInput [matDatepicker]="picker" [(ngModel)]="employeeData.dateOfBirth" [ngModelOptions]="{standalone:true}" >
+                                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                        <!-- <mat-error *ngIf="generalForm.get('dateOfBirth')?.getError('required')
+                                        && generalForm.get('dateOfBirth')?.touched">please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-4 col-sm mb-2">
+                                    <mat-form-field class="d-block m-auto">
+                                        <mat-label> Place Of Birth</mat-label>
+                                        <input matInput type="text"  [(ngModel)]="employeeData.placeOfBirth" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="generalForm.get('placeOfBirth')?.getError('required')&& generalForm.get('placeOfBirth')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                                <div class="row mb-4">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Union</mat-label>
+                                            <mat-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.union">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('union')?.getError('required')&&
+                                            generalForm.get('union')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Department</mat-label>
+                                            <mat-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.department">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('department')?.getError('required')&&
+                                            generalForm.get('department')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Departmenr/Devision</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.devision">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('devision')?.getError('required')&&
+                                            generalForm.get('devision')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Shift Time</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.shiftTime">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('shiftTime')?.getError('required')&&
+                                            generalForm.get('shiftTime')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Religion</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.religion">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('religion')?.getError('required')&&
+                                            generalForm.get('religion')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Phone</mat-label>
+                                            <input matInput type="tel"  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.phone">
+                                            <!-- <mat-error *ngIf="generalForm.get('phone')?.getError('required')&& generalForm.get('phone')?.touched">
+                                                please file this field</mat-error> 
+                                            <mat-error *ngIf="generalForm.get('phone')?.getError('pattern') &&
+                                            generalForm.get('phone')?.getError('minLength')
+                                            ">must be egyption number</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <div class="col-lg-4 col-sm  mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Material Status</mat-label>
+                                            <mat-select   [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.materialStatus">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('materialStatus')?.getError('required')&&
+                                            generalForm.get('materialStatus')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Job Title</mat-label>
+                                            <mat-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.jobTitle">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('jobTitle')?.getError('required')&&
+                                            generalForm.get('jobTitle')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                        
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Job Degree</mat-label>
+                                            <mat-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.jobDegree">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('jobDegree')?.getError('required')&&
+                                            generalForm.get('jobDegree')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Indentification Type</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.indentificationType">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('indentificationType')?.getError('required')&&
+                                            generalForm.get('indentificationType')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>National ID</mat-label>
+                                            <input matInput type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.nationalID">
+                                            <!-- <mat-error *ngIf="generalForm.get('nationalID')?.getError('required')
+                                            && generalForm.get('nationalID')?.touched ">
+                                                please file this field</mat-error>
+                                                <mat-error *ngIf="generalForm.get('nationalID')?.getError('maxlength')">
+                                                must be 14 number</mat-error> -->
+                                        </mat-form-field>
+                                        
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>National ID End Date</mat-label>
+                                            <input matInput [matDatepicker]="picker2"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.nationalIDEndDate">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker2></mat-datepicker>
+                                            <!-- <mat-error *ngIf="generalForm.get('nationalIDEndDate')?.getError('required')
+                                            && generalForm.get('nationalIDEndDate')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Nationality</mat-label>
+                                            <mat-select
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.nationality">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="generalForm.get('nationality')?.getError('required')&&
+                                            generalForm.get('nationality')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Attendence Machine Code</mat-label>
+                                            <input matInput type="text" 
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.attendenceMachineCode">
+                                            <!-- <mat-error *ngIf="generalForm.get('attendenceMachineCode')?.getError('required')
+                                            && generalForm.get('attendenceMachineCode')?.touched ">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <!-- <div class="col-md-6 mb-2">
+                                        <div class="img d-flex align-items-center mb-3">
+                                            <span>Signatur</span>
+                                            <div class="upload-img border border-1 ms-2">
+                                                <img [src]="signaturImgSrc" alt="" class="form-control" width="120px" height="120px">
+                                            </div>
+                                        </div>
+                                        <div class="upload mt-3">
+                                            <input 
+                                            type="file" 
+                                            class="form-control"
+                                            name="signatur"
+                                            formControlName="signatur"
+                                            (change)="signaturImgSrcFromFile($event)"
+                                            >
+                                            (change)="signaturImgSrcFromFile($event)" 
+                                        </div>
+                                        <p *ngIf="generalForm.get('signatur')?.getError('required')&& generalForm.get('signatur')?.touched" 
+                                            class="text-danger ">please file this field</p>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <div class="img d-flex align-items-center mb-3">
+                                            <span>Employee</span>
+                                            <div class="upload-img border border-1 ms-2">
+                                                <img [src]="employeeImgSrc" alt="" class="form-control" width="120px" height="120px">
+                                            </div>
+                                        </div>
+                                        <div class="upload mt-3">
+                                            <input 
+                                            type="file" 
+                                            class="form-control"
+                                            name="employee"
+                                            formControlName="employee"
+                                            (change)="employeeImgSrcFromFile($event)"
+                                            >
+                                            (change)="employeeImgSrcFromFile($event)" 
+                                        </div>
+                                        <p *ngIf="generalForm.get('employee')?.getError('required')&& generalForm.get('employee')?.touched" 
+                                            class="text-danger ">please file this field</p>
+                                    </div> -->
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-2 ">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Personal Email Address</mat-label>
+                                            <input matInput type="email" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.personalEmailAddress">
+                                            <!-- <mat-error *ngIf="generalForm.get('personalEmailAddress')?.getError('required')
+                                            && generalForm.get('personalEmailAddress')?.touched ">
+                                                please file this field</mat-error>
+                                            <mat-error *ngIf="generalForm.get('personalEmailAddress')?.getError('email')">
+                                            invalid email</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Official Email Address</mat-label>
+                                            <input matInput type="email"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.officialEmailAddress" >
+                                            <!-- <mat-error *ngIf="generalForm.get('officialEmailAddress')?.getError('required')
+                                            && generalForm.get('officialEmailAddress')?.touched ">
+                                                please file this field</mat-error>
+                                            <mat-error *ngIf="generalForm.get('officialEmailAddress')?.getError('email')">
+                                            invalid email</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                        </section>
+                    </mat-tab>
+                </div>
+                <div>
+                    <mat-tab label="Employment Data & HR File Documentation">
+                        <section class="container mt-4">
+                                <div class="row mb-4 "> 
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Date Of Appointment</mat-label>
+                                            <input matInput [matDatepicker]="picker1"
+                                            [(ngModel)]="employeeData.dataOfAppointment" [ngModelOptions]="{standalone:true}">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker1></mat-datepicker>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('dataOfAppointment')?.getError('required')
+                                            && dataAndFileDocForm.get('dataOfAppointment')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Date Of Joining</mat-label>
+                                            <input matInput [matDatepicker]="picker3" 
+                                            [(ngModel)]="employeeData.dataOfJoining" [ngModelOptions]="{standalone:true}">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker3></mat-datepicker>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('dataOfJoining')?.getError('required')
+                                            && dataAndFileDocForm.get('dataOfJoining')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Date Of Confirmation</mat-label>
+                                            <input matInput [matDatepicker]="picker4"
+                                            [(ngModel)]="employeeData.dateOfConfirmation" [ngModelOptions]="{standalone:true}" >
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker4></mat-datepicker>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('dateOfConfirmation')?.getError('required')
+                                            && dataAndFileDocForm.get('dateOfConfirmation')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4 ">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Probation Period Number</mat-label>
+                                            <input matInput type="number"
+                                            [(ngModel)]="employeeData.probationPeriodNumber" [ngModelOptions]="{standalone:true}">
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('probationPeriodNumber')?.getError('required')&&
+                                            dataAndFileDocForm.get('probationPeriodNumber')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Probation Period</mat-label>
+                                            <mat-select [(ngModel)]="employeeData.probationPeriod" [ngModelOptions]="{standalone:true}">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('probationPeriod')?.getError('required')&&
+                                            dataAndFileDocForm.get('probationPeriod')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                        
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Probation Period End Date</mat-label>
+                                            <input matInput [matDatepicker]="picker5"
+                                            [(ngModel)]="employeeData.probationPeriodEndDate" [ngModelOptions]="{standalone:true}">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker5"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker5></mat-datepicker>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('probationPeriodEndDate')?.getError('required')
+                                            && dataAndFileDocForm.get('probationPeriodEndDate')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4 ">
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Contract Starting Date</mat-label>
+                                            <input matInput [matDatepicker]="picker6" 
+                                            [(ngModel)]="employeeData.contractStartingDate" [ngModelOptions]="{standalone:true}" >
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker6"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker6></mat-datepicker>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('contractStartingDate')?.getError('required')
+                                            && dataAndFileDocForm.get('contractStartingDate')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Expiry Date Of Contract</mat-label>
+                                            <input matInput [matDatepicker]="picker7" 
+                                            [(ngModel)]="employeeData.expiryDateOfContract" [ngModelOptions]="{standalone:true}">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker7"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker7></mat-datepicker>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('expiryDateOfContract')?.getError('required')
+                                            && dataAndFileDocForm.get('expiryDateOfContract')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Notic Period Number</mat-label>
+                                            <input matInput type="number"
+                                            [(ngModel)]="employeeData.noticPeriodNumber" [ngModelOptions]="{standalone:true}">
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('noticPeriodNumber')?.getError('required')&&
+                                            dataAndFileDocForm.get('noticPeriodNumber')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Notic Period</mat-label>
+                                            <mat-select [(ngModel)]="employeeData.noticPeriod" [ngModelOptions]="{standalone:true}">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('noticPeriod')?.getError('required')&&
+                                            dataAndFileDocForm.get('noticPeriod')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Contract Place</mat-label>
+                                            <mat-select 
+                                            [(ngModel)]="employeeData.contractPlace" [ngModelOptions]="{standalone:true}">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('contractPlace')?.getError('required')&&
+                                            dataAndFileDocForm.get('contractPlace')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4 ">
+                                    <div class="col-md-9 d-flex align-items-baseline ">
+                                        <h3>Contract Type</h3>
+                                        <mat-radio-group aria-label="Select an option" color="primary">
+                                            <mat-radio-button type="radio" 
+                                            ngDefaultControl
+                                            [(ngModel)]="employeeData.contractType" 
+                                            [ngModelOptions]="{standalone:true}"   
+                                            value="permanent">Permanent</mat-radio-button>
+                                            <mat-radio-button type="radio" 
+                                            ngDefaultControl
+                                            [(ngModel)]="employeeData.contractType" 
+                                            [ngModelOptions]="{standalone:true}"  
+                                            value="temporary">Temporary</mat-radio-button>
+                                        </mat-radio-group>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('contractType')?.getError('required')&& dataAndFileDocForm.get('contractType')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                
+                                    </div>
+                                </div>  
+                    
+                                <div class="row mb-4 ">
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-checkbox class="example-margin" color="primary"
+                                        [(ngModel)]="employeeData.isHalfTime" [ngModelOptions]="{standalone:true}">Is Half Time</mat-checkbox>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('research')?.getError('required')&& dataAndFileDocForm.get('research')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-checkbox class="example-margin" color="primary"  
+                                        [(ngModel)]="employeeData.cader" [ngModelOptions]="{standalone:true}">Cader</mat-checkbox>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('card')?.getError('required')&& dataAndFileDocForm.get('card')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-checkbox class="example-margin" color="primary"  
+                                        [(ngModel)]="employeeData.travelingTicet" [ngModelOptions]="{standalone:true}">Traveling Ticet</mat-checkbox>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('travelingTicet')?.getError('required')&& dataAndFileDocForm.get('travelingTicet')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-checkbox class="example-margin" color="primary"  
+                                        [(ngModel)]="employeeData.housingAllounce" [ngModelOptions]="{standalone:true}">Housing Allounce</mat-checkbox>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('housingAllounce')?.getError('required')&& dataAndFileDocForm.get('housingAllounce')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                    </div>
+                                </div>
+                    
+                                
+                    
+                                <div class="row mb-4 ">
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Basic Salary</mat-label>
+                                            <input matInput type="number"
+                                            [(ngModel)]="employeeData.basicSalary" [ngModelOptions]="{standalone:true}" >
+                                            <!-- <mat-error *ngIf="dataAndFileDocForm.get('basicSalary')?.getError('required')&&
+                                            dataAndFileDocForm.get('basicSalary')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <mat-checkbox class="example-margin w-100" color="primary"
+                                        [(ngModel)]="employeeData.socialSubscription" [ngModelOptions]="{standalone:true}">Social Service Fund Subscription</mat-checkbox>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('socialSubscription')?.getError('required')&& dataAndFileDocForm.get('socialSubscription')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-4 ">
+                                    <div class="col-md-3">
+                                        <h3>Salary Payment Method</h3>
+                                        <mat-radio-group aria-label="Select an option" color="primary">
+                                            <mat-radio-button type="radio" ngDefaultControl [(ngModel)]="employeeData.paymentMethod" [ngModelOptions]="{standalone:true}"   value="bank">Bank</mat-radio-button>
+                                            <mat-radio-button type="radio" ngDefaultControl [(ngModel)]="employeeData.paymentMethod" [ngModelOptions]="{standalone:true}"  value="cach">Cach</mat-radio-button>
+                                            <mat-radio-button type="radio" ngDefaultControl [(ngModel)]="employeeData.paymentMethod" [ngModelOptions]="{standalone:true}"  value="other">Other</mat-radio-button>
+                                        </mat-radio-group>
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('paymentMethod')?.getError('required')&& dataAndFileDocForm.get('paymentMethod')?.touched" 
+                                        class="text-danger ">please file this field</mat-error> -->
+                                    </div>
+                                </div>
+                    
+                                <div class="p-1 bg-light ">
+                                    <h1>HR File</h1>
+                                </div>
+                    
+                            <div class="row">
+                                <div class="col-md-12 mt-3">
+                                    <div class="table">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Hiring Document</th>
+                                                
+                                                    <th scope="col">Mandatory</th>
+                                                
+                                                    <th scope="col">Status</th>
+                                                
+                                                    <th scope="col">Hiring Document File</th>
+                                               
+                                                    <th scope="col">View</th>
+                                                
+                                                    <th scope="col">Expiry Date</th>
+                                                
+                                                    <th scope="col">Recieve Date</th>
+                                                
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody class="border border-1 pb-0">
+                                                    <tr>
+                                                            <td scope="col" >
+                                                                <mat-form-field class="">
+                                                                    <mat-label>Hiring Document</mat-label>
+                                                                    <mat-select [(ngModel)]="employeeData.documentHiringtype" [ngModelOptions]="{standalone:true}">
+                                                                        <mat-option *ngFor="let option of certficateType" [value]="option">{{option}}</mat-option>
+                                                                    </mat-select>
+                                                                </mat-form-field>
+                                                            </td>
+                                                            <td scope="col">
+                                                                <mat-form-field class="">
+                                                                    <mat-label>Mandatory</mat-label>
+                                                                    <mat-select [(ngModel)]="employeeData.documentHiringMandatory" [ngModelOptions]="{standalone:true}">
+                                                                        <mat-option *ngFor="let option of certificateMandatory" [value]="option">{{option}}</mat-option>
+                                                                    </mat-select>
+                                                                </mat-form-field>
+                                                            </td>
+                                                            <td scope="col">
+                                                                <mat-form-field class="">
+                                                                    <mat-label>Status</mat-label>
+                                                                    <mat-select [(ngModel)]="employeeData.documentHiringStatus" [ngModelOptions]="{standalone:true}">                          
+                                                                        <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                                                    </mat-select>
+                                                                </mat-form-field>
+                                                            </td>
+                                                           
+                                                            <td scope="col">
+                                                                <mat-form-field class="">
+                                                                    <mat-label>View</mat-label>
+                                                                    <input matInput type="text" [(ngModel)]="employeeData.documentHiringView" [ngModelOptions]="{standalone:true}">
+                                                                </mat-form-field>
+                                                            </td>
+                                                            <td scope="col">
+                                                                <mat-form-field class="">
+                                                                    <mat-label>Expiry Date</mat-label>
+                                                                    <input matInput [matDatepicker]="expiryDate1" [(ngModel)]="employeeData.documentHiringExpiryDate" [ngModelOptions]="{standalone:true}">
+                                                                    <mat-datepicker-toggle matIconSuffix [for]="expiryDate1"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #expiryDate1></mat-datepicker>
+                                                                </mat-form-field>
+                                                            </td>
+                                                            <td scope="col">
+                                                                <mat-form-field class="">
+                                                                    <mat-label>Recieve Date</mat-label>
+                                                                    <input matInput [matDatepicker]="recieveDate1" [(ngModel)]="employeeData.documentHiringRecieveDate" [ngModelOptions]="{standalone:true}" >
+                                                                    <mat-datepicker-toggle matIconSuffix [for]="recieveDate1"></mat-datepicker-toggle>
+                                                                    <mat-datepicker #recieveDate1></mat-datepicker>
+                                                                </mat-form-field>
+                                                            </td>
+                                                            <td scope="col">
+                                                                <!-- <div class=" mx-4 mb-3 ">
+                                                                    <button type="button" class="px-5" mat-raised-button (click)="certFile.click()">Choose File</button>
+                                                                    <input  hidden (change)="onFileSelected_1($event)" #certFile type="file" 
+                                                                    [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.documentHiringFile">
+                                                                </div>
+                                                             -->
+                                                            </td>
+                                                            
+                                                    </tr>
+                
+                
+                                                    <!-- ///////////////////////// -->
+                                                    <tr>
+                                                        <td scope="col" >
+                                                            <mat-form-field class="">
+                                                                <mat-label>Hiring Document</mat-label>
+                                                                <mat-select [(ngModel)]="employeeData.birthDocumentHiringtype" [ngModelOptions]="{standalone:true}">
+                                                                    <mat-option *ngFor="let option of certficateType" [value]="option">{{option}}</mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </td>
+                                                        <td scope="col">
+                                                            <mat-form-field class="">
+                                                                <mat-label>Mandatory</mat-label>
+                                                                <mat-select [(ngModel)]="employeeData.birthDocumentHiringMandatory" [ngModelOptions]="{standalone:true}">
+                                                                    <mat-option *ngFor="let option of certificateMandatory" [value]="option">{{option}}</mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </td>
+                                                        <td scope="col">
+                                                            <mat-form-field class="">
+                                                                <mat-label>Status</mat-label>
+                                                                <mat-select [(ngModel)]="employeeData.birthDocumentHiringStatus" [ngModelOptions]="{standalone:true}">                          
+                                                                    <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                                                </mat-select>
+                                                            </mat-form-field>
+                                                        </td>
+                         
+                                                        <td scope="col">
+                                                            <mat-form-field class="">
+                                                                <mat-label>View</mat-label>
+                                                                <input matInput type="text" [(ngModel)]="employeeData.birthDocumentHiringView" [ngModelOptions]="{standalone:true}">
+                                                            </mat-form-field>
+                                                        </td>
+                                                        <td scope="col">
+                                                            <mat-form-field class="">
+                                                                <mat-label>Expiry Date</mat-label>
+                                                                <input matInput [matDatepicker]="expiryDate2" [(ngModel)]="employeeData.birthDocumentHiringExpiryDate" [ngModelOptions]="{standalone:true}">
+                                                                <mat-datepicker-toggle matIconSuffix [for]="expiryDate2"></mat-datepicker-toggle>
+                                                                <mat-datepicker #expiryDate2></mat-datepicker>
+                                                            </mat-form-field>
+                                                        </td>
+                                                        <td scope="col">
+                                                            <mat-form-field class="">
+                                                                <mat-label>Recieve Date</mat-label>
+                                                                <input matInput [matDatepicker]="recieveDate2" [(ngModel)]="employeeData.birthDocumentHiringRecieveDate" [ngModelOptions]="{standalone:true}">
+                                                                <mat-datepicker-toggle matIconSuffix [for]="recieveDate2"></mat-datepicker-toggle>
+                                                                <mat-datepicker #recieveDate2></mat-datepicker>
+                                                            </mat-form-field>
+                                                        </td>
+                                                        <td scope="col">
+                                                        <!-- <div class=" mx-4 mb-3 ">
+                                                        
+                                                            <button type="button" class="px-5" mat-raised-button (click)="birthcertFile.click()">Choose File</button>
+                                                            <input  hidden (change)="onFileSelected_2($event)" #birthcertFile type="file" 
+                                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.documentHiringFile">
+                                                        
+                                                        </div> -->
+                                                        </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    
+                                </div>
+                            </div> 
+
+                    
+                            <div class="row">
+                                <div class="col-md-6 mb-2 mt-5">
+                                    <mat-form-field class="w-100">
+                                        <mat-label>Remarks</mat-label>
+                                        <input matInput type="text" [(ngModel)]="employeeData.remarks" [ngModelOptions]="{standalone:true}">
+                                        <!-- <mat-error *ngIf="dataAndFileDocForm.get('remarks')?.getError('required')&&
+                                        dataAndFileDocForm.get('remarks')?.touched">
+                                            please file this field</mat-error> -->
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            
+                        </section>
+                        
+                    </mat-tab>
+                </div>
+                <div>
+                    <mat-tab label="Address & Contact Information">
+                        <section class="container mt-4">
+                                
+                                <div class="row mb-3">
+                
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Country</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.country" >
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('Country')?.getError('required')&&
+                                            addressContactForm.get('Country')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Governorates</mat-label>
+                                            <mat-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.governorates">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('governorates')?.getError('required')&&
+                                            addressContactForm.get('governorates')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>City</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.city">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('city')?.getError('required')&&
+                                            addressContactForm.get('city')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>District</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.district">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('district')?.getError('required')&&
+                                            addressContactForm.get('district')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Emergency Contact</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.emergencyContact">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('emergencyContact')?.getError('required')&& addressContactForm.get('emergencyContact')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Relation</mat-label>
+                                            <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.relation">
+                                                <mat-option *ngFor="let option of dropdownOptions" [value]="option">{{option}}</mat-option>
+                                            </mat-select>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('relation')?.getError('required')&&
+                                            addressContactForm.get('relation')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Local Address</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.localAddress" >
+                                            <!-- <mat-error *ngIf="addressContactForm.get('localAddress')?.getError('required')&&
+                                            addressContactForm.get('localAddress')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Local Address 2</mat-label>
+                                            <input matInput type="text"  [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.localAddress2">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('localAddress2')?.getError('required')&&
+                                            addressContactForm.get('localAddress2')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Local Address 3</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.localAddress3" >
+                                            <!-- <mat-error *ngIf="addressContactForm.get('localAddress3')?.getError('required')&&
+                                            addressContactForm.get('localAddress3')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Local Address 4</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.localAddress4">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('localAddress4')?.getError('required')&&
+                                            addressContactForm.get('localAddress4')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Premanent Address</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.premanentAddress">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress')?.getError('required')&&
+                                            addressContactForm.get('premanentAddress')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Premanent Address 2</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.premanentAddress2">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress2')?.getError('required')&&
+                                            addressContactForm.get('premanentAddress2')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field> 
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Premanent Address 3</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.premanentAddress3">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress3')?.getError('required')&&
+                                            addressContactForm.get('premanentAddress3')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field> 
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Premanent Address 4</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.premanentAddress4">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('premanentAddress4')?.getError('required')&&
+                                            addressContactForm.get('premanentAddress4')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>  
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Work Phone</mat-label>
+                                            <input matInput type="tel" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.workPhone">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('workPhone')?.getError('required')&&
+                                            addressContactForm.get('workPhone')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Place Issuing Identity</mat-label>
+                                            <input matInput type="tel" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.placeIssuingIdentity">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('placeIssuingIdentity')?.getError('required')&&
+                                            addressContactForm.get('placeIssuingIdentity')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Passport Number</mat-label>
+                                            <input matInput type="tel" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.passportNumber">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('passportNumber')?.getError('required')&&
+                                            addressContactForm.get('passportNumber')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Passport Expiration Date</mat-label>
+                                            <input matInput [matDatepicker]="picker8" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.passportExpirationDate">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker8"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker8></mat-datepicker>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('passportExpirationDate')?.getError('required')
+                                            && addressContactForm.get('passportExpirationDate')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Driving License Number</mat-label>
+                                            <input matInput type="number" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.drivingLicenseNumber">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('drivingLicenseNumber')?.getError('required')&&
+                                            addressContactForm.get('drivingLicenseNumber')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Date Of issuance Of License</mat-label>
+                                            <input matInput [matDatepicker]="picker9"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.dateOfissuanceOfLicense">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker9"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker9></mat-datepicker>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('dateOfissuanceOfLicense')?.getError('required')
+                                            && addressContactForm.get('dateOfissuanceOfLicense')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>License Expiration Date</mat-label>
+                                            <input matInput [matDatepicker]="picker11"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.licenseExpirationDate">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker11"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker11></mat-datepicker>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('licenseExpirationDate')?.getError('required')
+                                            && addressContactForm.get('licenseExpirationDate')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Syndicate Card</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.syndicateCard">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('syndicateCard')?.getError('required')&&
+                                            addressContactForm.get('syndicateCard')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Work Permit</mat-label>
+                                            <input matInput type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.workPermit">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('workPermit')?.getError('required')&&
+                                            addressContactForm.get('workPermit')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Expiration Date of Work Permit</mat-label>
+                                            <input matInput [matDatepicker]="picker12"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.expirationDateofworkPermit">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker12"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker12></mat-datepicker>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('expirationDateofworkPermit')?.getError('required')
+                                            && addressContactForm.get('expirationDateofworkPermit')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                
+                                <div class="row mb-3">
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Blood Type</mat-label>
+                                            <input matInput type="text"
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.bloodType">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('bloodType')?.getError('required')&&
+                                            addressContactForm.get('bloodType')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Insurence Date</mat-label>
+                                            <input matInput [matDatepicker]="picker13" 
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.insurenceDate">
+                                            <mat-datepicker-toggle matIconSuffix [for]="picker13"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker13></mat-datepicker>
+                                            <!-- <mat-error *ngIf="addressContactForm.get('insurenceDate')?.getError('required')
+                                            && addressContactForm.get('insurenceDate')?.touched">please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-lg-4 col-sm mb-2">
+                                        <mat-form-field class="d-block m-auto">
+                                            <mat-label>Insurence Value</mat-label>
+                                            <input matInput type="text" 
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.insurenceValue">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('insurenceValue')?.getError('required')&&
+                                            addressContactForm.get('insurenceValue')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                    
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Insurence job Title</mat-label>
+                                            <input matInput type="text" 
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.insurencejobTitle">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('insurencejobTitle')?.getError('required')&&
+                                            addressContactForm.get('insurencejobTitle')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <mat-form-field class="w-100">
+                                            <mat-label>Insurence Number</mat-label>
+                                            <input matInput type="number" 
+                                            [ngModelOptions]="{standalone: true}" [(ngModel)]="employeeData.insurenceNumber">
+                                            <!-- <mat-error *ngIf="addressContactForm.get('insurenceNumber')?.getError('required')&&
+                                            addressContactForm.get('insurenceNumber')?.touched">
+                                                please file this field</mat-error> -->
+                                        </mat-form-field>
+                                    </div>
+                                    
+                                </div>
+                            
+                        </section>
+                    </mat-tab>
+                </div>
+            </mat-tab-group>
+        </form>
+    </div>
+    
+  </div>
+
+
+  
